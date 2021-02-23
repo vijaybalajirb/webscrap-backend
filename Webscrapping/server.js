@@ -126,7 +126,7 @@ app.get("/flipkart",async (req,res)=>{
     try{
         let client = await mongoClient.connect(dbUrl,{useUnifiedTopology:true})
         let db = client.db("mobile")
-        let data = await db.collection("flipkart").find()
+        let data = await db.collection("flipkart").find().toArray()
         client.close()
         res.status(200).json(data)
     }
