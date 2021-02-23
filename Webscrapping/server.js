@@ -122,6 +122,52 @@ app.post("/amazon", async (req,res)=>{
     }
 })
 
+app.get("/flipkart",async (req,res)=>{
+    try{
+        let client = await mongoClient.connect(dbUrl,{useUnifiedTopology:true})
+        let db = client.db("mobile")
+        let data = await db.collection("flipkart").find().toArray()
+        client.close()
+        res.status(200).json(data)
+    }
+    catch(err){
+        res.status(400).json({
+            message: err.message
+        })
+    }
+})
+
+
+app.get("/amazon",async (req,res)=>{
+    try{
+        let client = await mongoClient.connect(dbUrl,{useUnifiedTopology:true})
+        let db = client.db("mobile")
+        let data = await db.collection("amazon").find().toArray()
+        client.close()
+        res.status(200).json(data)
+    }
+    catch(err){
+        res.status(400).json({
+            message: err.message
+        })
+    }
+})
+
+
+app.get("/snapdeal",async (req,res)=>{
+    try{
+        let client = await mongoClient.connect(dbUrl,{useUnifiedTopology:true})
+        let db = client.db("mobile")
+        let data = await db.collection("snapdeal").find().toArray()
+        client.close()
+        res.status(200).json(data)
+    }
+    catch(err){
+        res.status(400).json({
+            message: err.message
+        })
+    }
+})
 
 
 app.get("/",(req,res)=>{
