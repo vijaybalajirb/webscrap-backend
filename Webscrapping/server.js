@@ -126,7 +126,7 @@ app.get("/flipkart",async (req,res)=>{
     try{
         let client = await mongoClient.connect(dbUrl,{useUnifiedTopology:true})
         let db = client.db("mobile")
-        let data = await db.collection("flipkart").find().toArray()
+        let data = await db.collection("flipkart").find()
         client.close()
         res.status(200).json(data)
     }
@@ -142,7 +142,7 @@ app.get("/amazon",async (req,res)=>{
     try{
         let client = await mongoClient.connect(dbUrl,{useUnifiedTopology:true})
         let db = client.db("mobile")
-        let data = await db.collection("amazon").find().toArray()
+        let data = await db.collection("amazon").find()
         client.close()
         res.status(200).json(data)
     }
@@ -158,7 +158,7 @@ app.get("/snapdeal",async (req,res)=>{
     try{
         let client = await mongoClient.connect(dbUrl,{useUnifiedTopology:true})
         let db = client.db("mobile")
-        let data = await db.collection("snapdeal").find().toArray()
+        let data = await db.collection("snapdeal").find()
         client.close()
         res.status(200).json(data)
     }
