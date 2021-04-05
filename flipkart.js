@@ -26,7 +26,7 @@ let flip=async () => {
         });
         let $ = cheerio.load(response)
         let title = $('span[class="B_NuCI"]').text().replace(/\n/g, '').replace(/\t/g, '').trim()
-        let src = $('div[class="q6DClP"]').attr('style').match(/\bhttps?:\/\/\S+/gi).replace((),"").toString()
+        let src = $('div[class="q6DClP"]').attr('style').match(/\bhttps?:\/\/\S+/gi).toString()
         let rating =  $('div[class="_3LWZlK"]').text().substring(0,3)
         let price = $('div[class="_3I9_wc _2p6lqe"]').text()
         let offerprice = $('div[class="_30jeq3 _16Jk6d"]').text()
